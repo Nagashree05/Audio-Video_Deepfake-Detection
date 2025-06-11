@@ -1,0 +1,37 @@
+# Virtual environment
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Data folders (raw and processed)
+data/
+output/
+logs/
+checkpoints/
+processed_videos.log
+processed_audio_data
+
+# VS Code settings 
+.vscode/
+
+saved_models/
+
+*.npy
+*.log
+*.keras
+*.h5
+
+# Ignore model files in CelebDF directory
+/video_cdf/saved_models_video/celebdf_models/*.h5
+/video_cdf/saved_models_video/celebdf_models/*.keras
+
+# Ignore model files in FaceForensics directory
+/video_cdf/saved_models_video/faceforensics_models/*.h5
+/video_cdf/saved_models_video/faceforensics_models/*.keras
+
+# Ignore model files in audio models directory
+/audio/saved_models/*.h5
+/audio/saved_models/*.keras
+
