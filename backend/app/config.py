@@ -9,11 +9,11 @@ class Settings:
         
         if self.IS_WSL:
             # Linux-style paths (WSL)
-            self.VIDEO_MODEL_PATH = Path("/mnt/c/Users/nagas/deepfake-detection/videocdf/saved_models_video/faceforensics_models/final_faceforensics_resnet50.keras")
+            self.VIDEO_MODEL_PATH = Path("/mnt/c/Users/nagas/deepfake-detection/video_cdf/saved_models_video/faceforensics_models/final_faceforensics_resnet50.keras")
             self.AUDIO_MODEL_PATH = Path("/mnt/c/Users/nagas/deepfake-detection/audio/saved_models/final_model.keras")
         else:
             # Native Windows paths
-            self.VIDEO_MODEL_PATH = Path(r"C:/Users/nagas/deepfake-detection/videocdf/saved_models_video/faceforensics_models/final_resnet50_deepfake.keras")
+            self.VIDEO_MODEL_PATH = Path(r"C:/Users/nagas/deepfake-detection/video_cdf/saved_models_video/faceforensics_models/final_faceforensics_resnet50.keras")
             self.AUDIO_MODEL_PATH = Path(r"C:/Users/nagas/deepfake-detection/audio/saved_models/final_model.keras")
 
         # Processing parameters
