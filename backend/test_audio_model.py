@@ -3,8 +3,8 @@ from app.models.audio_model import audio_model  # Adjust import if needed
 
 # List of test audio files (replace with your paths)
 test_files = [
-    "/mnt/c/Users/nagas/deepfake-detection/temp_uploads/f.wav",
-    "/mnt/c/Users/nagas/deepfake-detection/temp_uploads/r.wav"
+    "/mnt/c/Users/nagas/deepfake-detection/temp_uploads/r1.wav",
+    "/mnt/c/Users/nagas/deepfake-detection/temp_uploads/r2.wav"
 ]
 
 for file_path in test_files:
