@@ -7,7 +7,7 @@ import uuid
 import mimetypes
 import traceback
 
-from app.services.detection_service import DetectionService
+from backend.app.services.detection_service import DetectionService
 from app.schemas import DetectionResult
 from app.config import settings
 from fastapi.middleware.cors import CORSMiddleware
