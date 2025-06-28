@@ -16,4 +16,4 @@ COPY . .
 # Environment variables
 ENV TEMP_DIR=/app/temp_uploads
 
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"]
+CMD ["python", "app/main.py"]
