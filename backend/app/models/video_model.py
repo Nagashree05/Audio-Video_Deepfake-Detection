@@ -18,34 +18,40 @@ class VideoModel:
             settings.VIDEO_MODEL_PATH,
             custom_objects={'focal_loss_fixed': focal_loss_fixed}
         )
+
+        self.modelCdf = load_model(
+            settings.VIDEO_MODEL_CDF_PATH,
+            custom_objects={'focal_loss_fixed': focal_loss_fixed}
+        )
         
     def predict(self, frames):
         print(f"🔍 DEBUG - Input frames shape: {frames.shape}")
         print(f"🔍 DEBUG - Input frames dtype: {frames.dtype}")
         print(f"🔍 DEBUG - Input frames range: {frames.min()} to {frames.max()}")
-        
-        # Normalize frames
+
         if frames.dtype != np.float32:
             frames = frames.astype('float32')
-        
+
         if frames.max() > 1.0:
             frames = frames / 255.0
-            
+
         print(f"🔍 DEBUG - After preprocessing range: {frames.min()} to {frames.max()}")
-        
-        # Get raw predictions
-        raw_predictions = self.model.predict(frames)
-        print(f"🔍 DEBUG - Raw model output: {raw_predictions}")
-        print(f"🔍 DEBUG - Raw predictions shape: {raw_predictions.shape}")
-        
-        # Check what your model actually outputs
-        if raw_predictions.shape[1] == 2:  # Binary classification with 2 outputs
-            fake_probability = raw_predictions[:, 1].mean()  # Probability of "fake"
-            print(f"🔍 DEBUG - Fake probability: {fake_probability}")
+
+        pred1 = self.model.predict(frames)
+        pred2 = self.modelCdf.predict(frames)
+
+        print(f"🔍 DEBUG - Raw predictions model1: {pred1}")
+        print(f"🔍 DEBUG - Raw predictions model2: {pred2}")
+
+        avg_pred = (pred1 + pred2) / 2.0
+
+        if avg_pred.shape[1] == 2:
+            fake_probability = avg_pred[:, 1].mean()
+            print(f"🔍 DEBUG - Averaged fake probability: {fake_probability}")
             return fake_probability
         else:
-            result = raw_predictions.mean()
-            print(f"🔍 DEBUG - Mean prediction: {result}")
+            result = avg_pred.mean()
+            print(f"🔍 DEBUG - Averaged mean prediction: {result}")
             return result
 
 video_model = VideoModel()

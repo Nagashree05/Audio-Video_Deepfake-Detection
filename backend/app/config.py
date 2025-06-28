@@ -6,13 +6,17 @@ class Settings:
     def __init__(self):
         # Detect if running in WSL/Linux
         self.IS_WSL = "microsoft" in platform.uname().release.lower()
+
+        BASE_DIR = Path(__file__).resolve().parent
         
-        if self.IS_WSL:
-            self.VIDEO_MODEL_PATH = Path("/mnt/c/Users/nagas/deepfake-detection/video_cdf/saved_models_video/faceforensics_models/final_faceforensics_resnet50.keras")
-            self.AUDIO_MODEL_PATH = Path("/mnt/c/Users/nagas/deepfake-detection/audio/saved_models/best_model.keras")
-        else:
-            self.VIDEO_MODEL_PATH = Path(r"C:/Users/nagas/deepfake-detection/video_cdf/saved_models_video/faceforensics_models/final_faceforensics_resnet50.keras")
-            self.AUDIO_MODEL_PATH = Path(r"C:/Users/nagas/deepfake-detection/audio/saved_models/final_model.keras")
+        self.VIDEO_MODEL_PATH = BASE_DIR / "trained_models/video_final_faceforensics_resnet50.keras"
+        self.VIDEO_MODEL_CDF_PATH = BASE_DIR / "trained_models/video_final_resnet50_deepfake.keras"
+        self.AUDIO_MODEL_PATH = BASE_DIR / "trained_models/audio_final_model.keras"
+
+
+        # self.VIDEO_MODEL_PATH = Path("/trained_models/video_final_faceforensics_resnet50.keras")
+        # self.VIDEO_MODEL_CDF_PATH = Path("/trained_models/video_final_resnet50_deepfake.keras")
+        # self.AUDIO_MODEL_PATH = Path("/trained_models/audio_final_model.keras")
 
         # Processing parameters
         self.FRAME_INTERVAL = 10
