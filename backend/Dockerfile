@@ -4,7 +4,7 @@ FROM python:3.9-slim
 RUN apt-get update && apt-get install -y ffmpeg && rm -rf /var/lib/apt/lists/*
 
 # Set up working directory
-WORKDIR /app
+WORKDIR /app/backend
 
 # Copy requirements first for caching
 COPY requirements.txt .
@@ -16,4 +16,4 @@ COPY . .
 # Environment variables
 ENV TEMP_DIR=/app/temp_uploads
 
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80"]
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"]
