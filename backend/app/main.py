@@ -1,3 +1,5 @@
+import sys
+sys.path.append('.')
 from fastapi import FastAPI, File, UploadFile, HTTPException
 from pathlib import Path
 import shutil
