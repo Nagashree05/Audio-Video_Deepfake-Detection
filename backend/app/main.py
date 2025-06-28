@@ -1,5 +1,6 @@
 import sys
 sys.path.append('.')
+import os
 from fastapi import FastAPI, File, UploadFile, HTTPException
 from pathlib import Path
 import shutil
@@ -7,7 +8,7 @@ import uuid
 import mimetypes
 import traceback
 
-from backend.app.services.detection_service import DetectionService
+from app.services.detection_service import DetectionService
 from app.schemas import DetectionResult
 from app.config import settings
 from fastapi.middleware.cors import CORSMiddleware
@@ -24,7 +25,7 @@ origins = [
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
