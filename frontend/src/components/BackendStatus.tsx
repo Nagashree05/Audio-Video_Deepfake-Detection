@@ -6,7 +6,7 @@ function BackendStatus() {
 
   const checkBackend = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/api/health');
+      const response = await axios.get('https://audio-videodeepfake-detection-production.up.railway.app/api/health');
       setStatus(response.data.status);
     } catch (error) {
       setStatus('Backend not reachable');

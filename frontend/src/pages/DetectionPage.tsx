@@ -20,7 +20,7 @@ export function DetectionPage() {
   useEffect(() => {
     const checkBackendHealth = async () => {
       try {
-        await axios.get('http://localhost:8000/api/health');
+        await axios.get('https://audio-videodeepfake-detection-production.up.railway.app/api/health');
         setBackendStatus('healthy');
       } catch (error) {
         setBackendStatus('unreachable');
