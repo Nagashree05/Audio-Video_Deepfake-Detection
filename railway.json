@@ -1,0 +1,11 @@
+{
+  "build": {
+    "pipInstall": [
+      "git-lfs",
+      "git-lfs install",
+      "git lfs pull",
+      "pip install -r requirements.txt"
+    ]
+  },
+  "start": "python backend/app/main.py"
+}
