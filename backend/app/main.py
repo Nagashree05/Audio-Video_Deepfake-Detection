@@ -8,9 +8,9 @@ import uuid
 import mimetypes
 import traceback
 
-from app.services.detection_service import DetectionService
-from app.schemas import DetectionResult
-from app.config import settings
+from services.detection_service import DetectionService
+from schemas import DetectionResult
+from config import settings
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
