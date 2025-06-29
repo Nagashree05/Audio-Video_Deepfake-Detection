@@ -7,7 +7,7 @@ class Settings:
         # Detect if running in WSL/Linux
         self.IS_WSL = "microsoft" in platform.uname().release.lower()
 
-        BASE_DIR = Path(__file__).resolve().parent.parent
+        BASE_DIR = Path(__file__).resolve().parent
         
         self.VIDEO_MODEL_PATH = BASE_DIR / "trained_models/video_final_faceforensics_resnet50.keras"
         self.VIDEO_MODEL_CDF_PATH = BASE_DIR / "trained_models/video_final_resnet50_deepfake.keras"
