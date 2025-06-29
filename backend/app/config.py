@@ -1,22 +1,27 @@
 import os
 import platform
 from pathlib import Path
+from huggingface_hub import hf_hub_download
 
 class Settings:
     def __init__(self):
-        # Detect if running in WSL/Linux
-        self.IS_WSL = "microsoft" in platform.uname().release.lower()
-
         BASE_DIR = Path(__file__).resolve().parent
         
-        self.VIDEO_MODEL_PATH = BASE_DIR / "trained_models/final_faceforensics_resnet50.keras"
-        self.VIDEO_MODEL_CDF_PATH = BASE_DIR / "trained_models/video_final_resnet50_deepfake.keras"
-        self.AUDIO_MODEL_PATH = BASE_DIR / "trained_models/audio_final_model.keras"
+        # Model filenames on HF repo
+        repo_id = "nagashreens05/deepguard"
 
+        # Download models from HF (they will be cached in ~/.cache/huggingface)
+        self.VIDEO_MODEL_PATH = Path(
+            hf_hub_download(repo_id=repo_id, filename="final_faceforensics_resnet50.keras")
+        )
 
-        # self.VIDEO_MODEL_PATH = Path("/trained_models/video_final_faceforensics_resnet50.keras")
-        # self.VIDEO_MODEL_CDF_PATH = Path("/trained_models/video_final_resnet50_deepfake.keras")
-        # self.AUDIO_MODEL_PATH = Path("/trained_models/audio_final_model.keras")
+        self.VIDEO_MODEL_CDF_PATH = Path(
+            hf_hub_download(repo_id=repo_id, filename="final_resnet50_deepfake.keras")
+        )
+
+        self.AUDIO_MODEL_PATH = Path(
+            hf_hub_download(repo_id=repo_id, filename="final_model.keras")
+        )
 
         # Processing parameters
         self.FRAME_INTERVAL = 10
