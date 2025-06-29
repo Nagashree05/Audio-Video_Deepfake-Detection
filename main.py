@@ -16,6 +16,9 @@ from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI()
 detection_service = DetectionService()
 
+sys.path.append(str(Path(__file__).resolve().parent))
+sys.path.append(str(Path(__file__).resolve().parent.parent))
+
 origins = [
     "http://localhost:3000",  # Your frontend URL
     "http://127.0.0.1:3000",  # Sometimes React uses this
