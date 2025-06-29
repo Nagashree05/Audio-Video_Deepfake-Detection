@@ -21,7 +21,6 @@ saved_models/
 
 *.npy
 *.log
-*.keras
 *.h5
 
 # Ignore model files in CelebDF directory
