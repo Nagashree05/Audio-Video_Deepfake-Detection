@@ -14,10 +14,10 @@ def focal_loss_fixed(y_true, y_pred, gamma=2.0, alpha=0.25):
 
 class VideoModel:
     def __init__(self):
-        self.model = load_model(
-            settings.VIDEO_MODEL_PATH,
-            custom_objects={'focal_loss_fixed': focal_loss_fixed}
-        )
+        # self.model = load_model(
+        #     settings.VIDEO_MODEL_PATH,
+        #     custom_objects={'focal_loss_fixed': focal_loss_fixed}
+        # )
 
         self.modelCdf = load_model(
             settings.VIDEO_MODEL_CDF_PATH,
@@ -37,13 +37,13 @@ class VideoModel:
 
         print(f"🔍 DEBUG - After preprocessing range: {frames.min()} to {frames.max()}")
 
-        pred1 = self.model.predict(frames)
+        # pred1 = self.model.predict(frames)
         pred2 = self.modelCdf.predict(frames)
 
         print(f"🔍 DEBUG - Raw predictions model1: {pred1}")
         print(f"🔍 DEBUG - Raw predictions model2: {pred2}")
 
-        avg_pred = (pred1 + pred2) / 2.0
+        avg_pred = pred2
 
         if avg_pred.shape[1] == 2:
             fake_probability = avg_pred[:, 1].mean()
