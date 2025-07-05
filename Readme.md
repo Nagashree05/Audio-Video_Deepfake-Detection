@@ -4,13 +4,21 @@ Overview
 Audio-Video Deepfake Detection is a full-stack AI application that leverages deep learning models to detect deepfakes in both audio and video files. The project features a modern web interface and robust backend, allowing users to upload media and receive deepfake detection results in real time.
 
 Features
+
 🎥 Video deepfake detection using ResNet50
+
 🎤 Audio deepfake detection using VGG16+LSTM
+
 🌐 Web frontend (React or Streamlit)
+
 📊 Confidence scores and result dashboard
+
 🗂️ Detection history (optional)
+
 🔒 User authentication (optional)
+
 🚀 Easy deployment (Docker, Railway, Render)
+
 ☁️ Model weights hosted on Hugging Face Hub for easy access and portability
 
 Model Information
@@ -41,30 +49,6 @@ This requires the huggingface_hub and a recent version of keras (pip install -U 
 
 No need to manually download or store large model files in your repository or Docker image.
 See the Hugging Face documentation for more details.
-
-Project Structure
-
-Audio-Video_Deepfake-Detection/
-│
-├── backend/
-│   ├── app/
-│   │   ├── main.py
-│   │   ├── models/
-│   │   ├── services/
-│   │   ├── config.py
-│   │   └── ...
-│   ├── requirements.txt
-│   ├── Dockerfile
-│   └── ...
-│
-├── frontend/
-│   ├── src/
-│   ├── public/
-│   ├── package.json
-│   └── ...
-│
-├── .gitignore
-└── README.md
 
 Setup & Installation
 
@@ -98,7 +82,7 @@ npm run dev
 
 Usage
 
-Open the frontend in your browser (http://localhost:3000 or Streamlit URL).
+Open the frontend in your browser (http://localhost:3000).
 Upload a video or audio file.
 View the detection result and confidence score.
 
