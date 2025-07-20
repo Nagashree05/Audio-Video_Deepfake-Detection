@@ -41,25 +41,30 @@ See the Hugging Face documentation for more details.
 # Backend (FastAPI)
 
 Clone the repository:
-	git clone https://github.com/Nagashree05/Audio-Video_Deepfake-Detection.git
-	cd Audio-Video_Deepfake-Detection/backend
+git clone https://github.com/Nagashree05/Audio-Video_Deepfake-Detection.git
+cd Audio-Video_Deepfake-Detection/backend
+
 Create and activate a virtual environment:
-	python3 -m venv .venv
-	source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+python3 -m venv .venv
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+
 Install dependencies:
-	pip install --upgrade pip
-	pip install -r requirements.txt
+pip install --upgrade pip
+pip install -r requirements.txt
+
 Run the backend server:
-	uvicorn app.main:app --reload
+uvicorn app.main:app --reload
 
 # Frontend (React)
 
 Navigate to the frontend directory:
-	cd ../frontend
+cd ../frontend
+
 Install frontend dependencies:
-	npm install
+npm install
+
 Start the frontend development server:
-	npm run dev
+npm run dev
 
 # Usage
 
